@@ -1,0 +1,3 @@
+{
+    "shell_cmd": "g++ ${file_name} -o ${file_base_name} `pkg-config --cflags --libs opencv` && ./${file_base_name}"
+}
