@@ -1,4 +1,5 @@
 exp-CV
 ======
 
-Experimentos em visão computacional
+Experimentos em visão computacional  
+@(Linux Mint)
