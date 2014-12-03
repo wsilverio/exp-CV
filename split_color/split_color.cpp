@@ -29,16 +29,21 @@ int main(void){
 	}
 
 	Mat B, G, R;
+
+	// float fator = 1000;
 	
-	merge(B_vec, B);	
+	merge(B_vec, B);
+	// randShuffle(B, fator);	
     imshow("B", B);
     imwrite("B.png", B);
 	
 	merge(G_vec, G);
+	// randShuffle(G, fator);
     imshow("G", G);
     imwrite("G.png", G);
 
     merge(R_vec, R);
+    // randShuffle(R, fator);
     imshow("R", R);
     imwrite("R.png", R);
 

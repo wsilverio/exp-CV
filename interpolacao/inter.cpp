@@ -7,26 +7,34 @@ int main(void){
     
     float zoom = .5; // reduz a imagem à metade do tamanho
 
-    Mat img = imread("../images/clock.jpg");
+    Mat pb, img = imread("../images/clock.jpg");
+
+    cvtColor(img, pb, CV_RGB2GRAY);
+
     resize(img, img, Size(), zoom, zoom); // padrao: bilinear
 
-    Mat vmp, bilin, bicub, area, lanc; // vizinho mais proximo, bilinear, bicubica, por area, Lanczos
-    
+    // vizinho mais proximo, bilinear, bicubica, por area, Lanczos
     string interName[] = {"INTER_NEAREST", "INTER_LINEAR", "INTER_CUBIC", "INTER_AREA", "INTER_LANCZOS4"};
-
-    vector<Mat> interImg(sizeof(interName)/sizeof(*interName)); // = 5
 
     zoom = 2; // retorna ao tamanho original
 
-    //imshow("ORIGINAL", img);
+    for(int i = 0; i < sizeof(interName)/sizeof(*interName); i++){ // = 5
+        Mat interImg;
+        resize(img, interImg, Size(), zoom, zoom, i);
 
-    for(int i = 0; i < interImg.size(); i++){
-        resize(img, interImg[i], Size(), zoom, zoom, i);
-        imwrite(interName[i] + ".jpg", interImg[i]);
-        //imshow(interName[i], interImg[i]);
+        imshow(interName[i], interImg);
+        imwrite(interName[i] + ".jpg", interImg);
+
+        cvtColor(interImg, interImg, CV_RGB2GRAY);
+
+        imshow("origiPB-" + interName[i], pb - interImg);
+        imwrite("origiPB-" + interName[i] + ".jpg", pb - interImg);
+
+        // imshow("origiPB-" + interName[i], Scalar(255) - pb - interImg);
+        // imwrite("origiPB-" + interName[i] + ".jpg", Scalar(255) - pb - interImg);
     }
 
-    //waitKey();
+    waitKey();
 
     //system("nemo . &"); // abre o diretorio
 
