@@ -18,14 +18,8 @@ int main(void){
     
     // distribui as camadas nos planos
     split(img, bgr);
-    split(Scalar(255, 255, 255) - img, bgr_neg); // extrai o negativo
-
     // extrai o negativo
-    /*
-    for (int i = 0; i < bgr_neg.size(); i++){
-        bgr_neg[i] = 255 - bgr_neg[i];
-    }
-    */
+    split(Scalar(255, 255, 255) - img, bgr_neg); // extrai o negativo
 
     // mescla as camadas
     merge(bgr_neg, neg);

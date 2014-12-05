@@ -33,7 +33,7 @@ int main(void){
         //minMaxLoc(bit0, &minVal, &maxVal);
         //cout << minVal << endl << maxVal << endl;
 
-        //threshold(bit0, bit0, maxVal - 1, 255, THRESH_BINARY);
+        // threshold(bit0, bit0, maxVal - 1, 255, THRESH_BINARY);
         // equalizeHist(bit0, bit0);
         // imshow(ones[i], bit0);
         imwrite(ones[i]+".jpg", bit0);

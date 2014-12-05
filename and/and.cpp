@@ -9,7 +9,7 @@ int main(void){
 
     cvtColor(img, img, CV_RGB2GRAY);
     equalizeHist(img, img);
-        
+    
     imwrite("ORIGINAL.jpg", img);
 
     string ones[8] = {"01111111", "10111111", "11011111", "11101111", "11110111", "11111011", "11111101", "11111110"};

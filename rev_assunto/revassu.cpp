@@ -17,10 +17,10 @@ int main(void){
 
     for (int i = 0; i < img.rows; ++i){
         for (int j = 0; j < img.cols; ++j){
-            if(img.at<char>(i, j) < 4 || img.at<char>(i, j) > 10){
-                img.at<char>(i, j) = 0;
+            if(img.at<uchar>(i, j) < 4 || img.at<char>(i, j) > 10){
+                img.at<uchar>(i, j) = 0;
             }else{
-                img.at<char>(i, j) = 255;
+                img.at<uchar>(i, j) = 255;
             }
         }
     }

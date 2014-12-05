@@ -24,7 +24,7 @@ int main(void){
 
     for (int i = 0; i < img.rows; i++){
         for (int j = 0; j < img.cols; j++){
-            res.at<unsigned char>(i, j) = (int) img.at<unsigned char>(i, j) / ((float) padrao.at<unsigned char>(i, j) / 255.0);
+            res.at<uchar>(i, j) = img.at<uchar>(i, j) / (padrao.at<uchar>(i, j) / 255.0);
         }
     }
 

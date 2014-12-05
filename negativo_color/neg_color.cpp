@@ -11,19 +11,6 @@ int main(void){
     imshow("original", img);
     imwrite("original.png", img);
 
-    // vector<Mat> bgr;
-    // split(img, bgr);
-
-    // imshow("B", bgr[0]);
-    // imshow("G", bgr[1]);
-    // imshow("R", bgr[2]);
-
-    // for (int i = 0; i < bgr.size(); i++){
-    //     bgr[i] = 255 - bgr[i];
-    // }
-
-    // merge(bgr, img);
-
     imshow("negativo", Scalar(255, 255, 255) - img);
     imwrite("negativo.png", Scalar(255, 255, 255) - img);
 
