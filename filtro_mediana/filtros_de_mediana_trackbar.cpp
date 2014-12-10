@@ -15,6 +15,10 @@ void filtragem(int, void *){
 
     medianBlur(img, filtro, mn);
 
+    // for (int i = 0; i < 10; ++i){
+    //     medianBlur(filtro, filtro, mn);
+    // }
+    
     imshow("filtro de mediana", filtro);
 
     // Mat sub = img - filtro;

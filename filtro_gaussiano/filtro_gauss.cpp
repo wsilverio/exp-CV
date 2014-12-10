@@ -8,7 +8,7 @@ using namespace std;
 int main(void){
 
     // Mat img = imread("../images/Lenna.png");
-    Mat img = imread("../images/CH03/Fig0340(a)(dipxe_text).tif");
+    Mat img = imread("../images/circ.png");
     imshow("original", img);
 
     int m = 5;
@@ -19,11 +19,14 @@ int main(void){
 
     GaussianBlur(img, filtro, Size(m, m), sigma);
     imshow("filtro gaussiano", filtro);
+    imwrite("filtro_gaussiano.png", filtro);
 
     filtro = img - filtro;
     imshow("mascara", filtro);
+    imwrite("mascara.png", filtro);
 
-    imshow("resultado", img + k*filtro);    
+    imshow("original + " + to_string(k) + "*mascara", img + k*filtro);    
+    imwrite("original+" + to_string(k) + "*mascara.png", img + k*filtro);    
 
     waitKey();
 
