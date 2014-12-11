@@ -11,7 +11,7 @@ int limiar;
 
 void limiarizacao(int, void*){
     double maxVal;
-    minMaxLoc(img, 0, &maxVal);
+    minMaxLoc(img, NULL, &maxVal);
     Mat lim;
     threshold(filtro, lim, (maxVal*limiar/100.0), 255, THRESH_BINARY);
     imshow("limiarizacao", lim);
