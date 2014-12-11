@@ -1,5 +1,5 @@
-#include <cv.h>
-#include <highgui.h>
+#include <opencv2/opencv.hpp>
+#include <opencv2/highgui/highgui_c.h>
 #include <iostream>
 
 using namespace cv;
@@ -35,12 +35,13 @@ int main(void){
 
         // threshold(bit0, bit0, maxVal - 1, 255, THRESH_BINARY);
         // equalizeHist(bit0, bit0);
-        // imshow(ones[i], bit0);
+        imshow(ones[i], bit0);
         imwrite(ones[i]+".jpg", bit0);
 
         bitwise_and(img, bin[i], bit1);
         bit1 = img - bit1;
         // equalizeHist(bit1, bit1);
+        imshow(zeros[i], bit1);
         imwrite(zeros[i]+".jpg", bit1);
     }
 

@@ -1,15 +1,15 @@
 // http://docs.opencv.org/doc/tutorials/imgproc/histograms/histogram_calculation/histogram_calculation.html#histogram-calculation
 
-#include <cv.h>
-#include <highgui.h>
-//#include <iostream>
+#include <opencv2/opencv.hpp>
+#include <opencv2/highgui/highgui_c.h>
+#include <iostream>
 
 using namespace cv;
-//using namespace std;
+using namespace std;
 
 
 int main(void){
-  
+
   // fonte, destino
   Mat src, dst;
 
@@ -68,7 +68,7 @@ int main(void){
 
   // largura, altura, intervalo entre os passos
   int hist_w = 512, hist_h = 400, bin_w = cvRound((double) hist_w/histSize);
-    
+
   // imagem 8 bits, 3 camadas, bg 000
   Mat histImage(hist_h, hist_w, CV_8UC3, Scalar(0,0,0));
 
@@ -86,17 +86,17 @@ int main(void){
 
   // Draw for each channel
   for(int i = 1; i < histSize; i++){
-      line(histImage, Point(bin_w*(i-1), hist_h - cvRound(b_hist.at<float>(i-1))),
-                       Point(bin_w*(i), hist_h - cvRound(b_hist.at<float>(i))),
-                       Scalar(255, 0, 0), 2, 8, 0);
+    line(histImage, Point(bin_w*(i-1), hist_h - cvRound(b_hist.at<float>(i-1))),
+     Point(bin_w*(i), hist_h - cvRound(b_hist.at<float>(i))),
+     Scalar(255, 0, 0), 2, 8, 0);
 
-      line(histImage, Point(bin_w*(i-1), hist_h - cvRound(g_hist.at<float>(i-1))),
-                       Point(bin_w*(i), hist_h - cvRound(g_hist.at<float>(i))),
-                       Scalar(0, 255, 0), 2, 8, 0);
-      
-      line(histImage, Point(bin_w*(i-1), hist_h - cvRound(r_hist.at<float>(i-1))),
-                       Point(bin_w*(i), hist_h - cvRound(r_hist.at<float>(i))),
-                       Scalar(0, 0, 255), 2, 8, 0);
+    line(histImage, Point(bin_w*(i-1), hist_h - cvRound(g_hist.at<float>(i-1))),
+     Point(bin_w*(i), hist_h - cvRound(g_hist.at<float>(i))),
+     Scalar(0, 255, 0), 2, 8, 0);
+
+    line(histImage, Point(bin_w*(i-1), hist_h - cvRound(r_hist.at<float>(i-1))),
+     Point(bin_w*(i), hist_h - cvRound(r_hist.at<float>(i))),
+     Scalar(0, 0, 255), 2, 8, 0);
   }
 
   namedWindow("Histo", CV_WINDOW_AUTOSIZE);

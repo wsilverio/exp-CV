@@ -1,5 +1,5 @@
-#include <cv.h>
-#include <highgui.h>
+#include <opencv2/opencv.hpp>
+#include <opencv2/highgui/highgui_c.h>
 #include <string>
 
 using namespace cv;
@@ -27,9 +27,9 @@ void filtragem(int, void *){
 
 int main(void){
 
-    // img = imread("../images/Lenna.png");
+    img = imread("../images/Lenna.png");
     // img = imread("../images/CH03/Fig0333(a)(test_pattern_blurring_orig).tif", 0);
-    img = imread("../images/CH03/Fig0335(a)(ckt_board_saltpep_prob_pt05).tif", 0);
+    // img = imread("../images/CH03/Fig0335(a)(ckt_board_saltpep_prob_pt05).tif", 0);
 
     // imwrite("original.png", img);
 

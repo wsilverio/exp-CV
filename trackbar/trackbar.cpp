@@ -1,17 +1,17 @@
-#include <cv.h>
-#include <highgui.h>
-// #include <iostream>
+#include <opencv2/opencv.hpp>
+#include <opencv2/highgui/highgui_c.h>
+#include <iostream>
 
 using namespace cv;
-// using namespace std;
+using namespace std;
 
 Mat img;
 int valor_slide = 0;
-string end = "../images/real.jpg";
+string addrs = "../images/real.jpg";
 
 void trackbar(int, void *){
 
-    img = imread(end, 0);
+    img = imread(addrs, 0);
     
     for (int j = 0; j < valor_slide; ++j){
         for (int i = 0; i < img.rows; ++i){
@@ -24,10 +24,10 @@ void trackbar(int, void *){
 }
 
 int main(void){
- 
+
     namedWindow("IMG", WINDOW_AUTOSIZE);
 
-    img = imread(end, 0);
+    img = imread(addrs, 0);
 
     createTrackbar("neg cols: ", "IMG", &valor_slide, img.cols, trackbar);
     trackbar(valor_slide, 0);

@@ -1,5 +1,5 @@
-#include <cv.h>
-#include <highgui.h>
+#include <opencv2/opencv.hpp>
+#include <opencv2/highgui/highgui_c.h>
 #include <string>
 
 using namespace cv;
@@ -7,8 +7,7 @@ using namespace std;
 
 int main(void){
 
-    // Mat img = imread("../images/Lenna.png");
-    Mat img = imread("../images/circ.png");
+    Mat img = imread("../images/CH03/Fig0340(a)(dipxe_text).tif");
     imshow("original", img);
 
     int m = 5;

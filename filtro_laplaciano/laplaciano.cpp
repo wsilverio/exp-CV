@@ -1,5 +1,5 @@
-#include <cv.h>
-#include <highgui.h>
+#include <opencv2/opencv.hpp>
+#include <opencv2/highgui/highgui_c.h>
 #include <iostream>
 
 using namespace cv;
@@ -7,8 +7,9 @@ using namespace std;
 
 int main(void){
     // Mat img = imread("../images/Lenna.png");
-    Mat img = imread("../images/CH03/Fig0338(a)(blurry_moon).tif", 0);
-    // Mat img = imread("../images/geral2.png", 0);
+    // Mat img = imread("../images/CH03/Fig0338(a)(blurry_moon).tif", 0);
+    Mat img = imread("../images/geral.png", 0);
+    // Mat img = imread("../images/CH03/Fig0342(a)(contact_lens_original).tif");
 
     // imshow("original", img);
     // imwrite("original.png", img);
@@ -73,10 +74,11 @@ int main(void){
     3, 10, 3);
 
     Mat result;
-    // int i = 9;
+    int i = 4;
     // for (int i = 0; i < 4; ++i){
-    // filter2D(img, result, img.depth(), -kernel[i]);
-    // imshow("filtro2D[" + to_string(i) + "]", result);
+    filter2D(img, result, CV_16S, kernel[i]);
+    convertScaleAbs(result, result);
+    imshow("filtro2D[" + to_string(i) + "]", result);
     // imshow("img - filtro2D[" + to_string(i) + "]", img - result);    
     // imshow("img + filtro2D[" + to_string(i) + "]", img + result);    
 
@@ -86,13 +88,12 @@ int main(void){
     // }
 
     // blur(img, img, Size(3, 3));
-    Laplacian(img, result, CV_16S, 7);
+    // Laplacian(img, result, CV_16S, 7);
     // Laplacian(img, result, img.depth(), 7);
     // convertScaleAbs(result, result);
-    imshow("Laplacian", result);
-
+    // imshow("Laplaciano", result);
 
     waitKey();
-
+    destroyAllWindows();
     return 0;
 }

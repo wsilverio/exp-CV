@@ -1,10 +1,12 @@
-#include <cv.h>
-#include <highgui.h>
+#include <opencv2/opencv.hpp>
+#include <opencv2/highgui/highgui_c.h>
+#include <iostream>
 
 using namespace cv;
+using namespace std;
 
 int main (void){
-    
+
 
   Mat src, dst;
   //src = imread("../images/Lenna.png", 0);
@@ -21,7 +23,7 @@ int main (void){
     imwrite(images[i] + "orig.jpg", src);
     imwrite(images[i] + "equa.jpg", dst);
   }
-    
+
   waitKey();
 
   return 0;
