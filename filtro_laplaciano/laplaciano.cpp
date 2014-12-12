@@ -43,12 +43,12 @@ int main(void){
     // -1, 8,-1,
     // -1,-1,-1);
 
-    kernel[4] = (Mat_<char>(3,3) <<     /*Sobel X*/
+    kernel[4] = (Mat_<char>(3,3) <<     /*Sobel Y*/
     -1,-2,-1,
     0, 0, 0,
     1, 2, 1);
 
-    kernel[5] = (Mat_<char>(3,3) <<     /*Sobel Y*/
+    kernel[5] = (Mat_<char>(3,3) <<     /*Sobel X*/
     -1, 0, 1,
     -2, 0, 2,
     -1, 0, 1);
@@ -74,7 +74,7 @@ int main(void){
     3, 10, 3);
 
     Mat result;
-    int i = 4;
+    int i = 5;
     // for (int i = 0; i < 4; ++i){
     filter2D(img, result, CV_16S, kernel[i]);
     convertScaleAbs(result, result);
@@ -82,9 +82,9 @@ int main(void){
     // imshow("img - filtro2D[" + to_string(i) + "]", img - result);    
     // imshow("img + filtro2D[" + to_string(i) + "]", img + result);    
 
-        // imwrite("filtro2D[" + to_string(i) + "].png", result);
-        // imwrite("img-filtro2D[" + to_string(i) + "].png", img - result);    
-        // imwrite("img+filtro2D[" + to_string(i) + "].png", img + result);
+    // imwrite("filtro2D[" + to_string(i) + "].png", result);
+    // imwrite("img-filtro2D[" + to_string(i) + "].png", img - result);    
+    // imwrite("img+filtro2D[" + to_string(i) + "].png", img + result);
     // }
 
     // blur(img, img, Size(3, 3));

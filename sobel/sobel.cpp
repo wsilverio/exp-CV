@@ -7,46 +7,74 @@ using namespace std;
 
 int main(void){
 
-	VideoCapture cap(0);
-	if(!cap.isOpened())
-		return -1;
+    VideoCapture cap(0);
+    if(!cap.isOpened())
+        return -1;
 
-	namedWindow("Video", CV_WINDOW_AUTOSIZE);
+    // namedWindow("Video", CV_WINDOW_AUTOSIZE);
+    namedWindow("sobel x", CV_WINDOW_AUTOSIZE);
+    namedWindow("sobel y", CV_WINDOW_AUTOSIZE);
+    namedWindow("laplaciano", CV_WINDOW_AUTOSIZE);
+    namedWindow("result abs", CV_WINDOW_AUTOSIZE);
+    namedWindow("result", CV_WINDOW_AUTOSIZE);
+    namedWindow("x+y", CV_WINDOW_AUTOSIZE);
 
-	while(1) {
-		Mat img;
-		cap >> img;
-		cvtColor(img, img, CV_BGR2GRAY);
+    while(1) {
+        Mat img;
+        cap >> img;
 
-		// blur(img, img, Size(3, 3));
-		// Laplacian(img, img, CV_16S, 3);
-		Mat result;
-		Sobel(img, result, CV_16S, 1, 0, CV_SCHARR, 1, 0, BORDER_DEFAULT);
-		// Sobel(img, result, CV_16S, 1, 1, 3, 1, 0, BORDER_DEFAULT);
-		// Sobel(img, img, CV_16S, 1, 1, 3, 1, 0, BORDER_DEFAULT);
-		// Sobel(img, img, CV_16S, 0, 1, 3, 1, 0, BORDER_DEFAULT);
-		// Sobel(img, img, CV_16S, 1, 0, 3, 1, 0, BORDER_DEFAULT);
-		convertScaleAbs(result, result);
-		// Sobel(src, dst, ddepth, dx, dy, ksize=3, scale=1, delta=0, BORDER_DEFAULT );
+        cvtColor(img, img, CV_BGR2GRAY);
 
-		// flip(img, img, 1);
-		
-		imshow("Video", Scalar(255) - result);
-		if(waitKey(30) >= 0) break;
+        int m = 7;
+        GaussianBlur(img, img, Size(m, m), (m/2.0)*0.5);
 
-	}
+        Mat result;
 
-	// Mat img = imread("../images/CH03/Fig0342(a)(contact_lens_original).tif", 0);
+        Laplacian(img, result, CV_16S, 3);
+        convertScaleAbs(result, result);
+        imshow("laplaciano", result);
 
-	// imshow("img", img);
-	// imwrite("img.png", img);
+        // Sobel(img, result, CV_16S, 1, 0, CV_SCHARR, 1, 0, BORDER_DEFAULT);
+        // Sobel(img, result, CV_16S, 1, 1, 3, 1, 0, BORDER_DEFAULT);
+        // convertScaleAbs(result, result);
 
-	// Sobel(img, img, img.depth(), 1, 1, 3, 1, 0, BORDER_DEFAULT);
-	// convertScaleAbs(img, img);
-	// Sobel(src, dst, ddepth, dx, dy, ksize=3, scale=1, delta=0, BORDER_DEFAULT );
-	// imshow("Sobel", img);
+        Mat x, y;
+        Sobel(img, x, CV_16S, 1, 0, 3, 1, 0, BORDER_DEFAULT);
+        Sobel(img, y, CV_16S, 0, 1, 3, 1, 0, BORDER_DEFAULT);
+        
+        addWeighted(x, 0.5, y, 0.5, 0, result);
+        convertScaleAbs(result, result);
+        imshow("result abs", result);
 
-	// waitKey();
+        convertScaleAbs(x, x);
+        convertScaleAbs(y, y);
 
-	return 0;
+        imshow("sobel x", x);
+        imshow("sobel y", y);
+        
+        // flip(img, img, 1);
+
+        // imshow("Video", result);
+        // imshow("Video", Scalar(255) - result);
+
+        addWeighted(x, 0.5, y, 0.5, 0, result);
+
+        imshow("x+y", (x + y));
+        imshow("result", result);
+
+        if(waitKey(30) >= 0) break;
+
+    }
+
+    // Mat img = imread("../images/CH03/Fig0342(a)(contact_lens_original).tif");
+    // imshow("img", img);
+    // imwrite("img.png", img);
+    // Mat result;
+    // Sobel(img, result, CV_16S, 1, 1, 3, 1, 0, BORDER_DEFAULT);
+    // convertScaleAbs(result, result);
+    // imshow("Sobel", result);
+    // imwrite("Sobel.png", result);
+    // waitKey();
+
+    return 0;
 }

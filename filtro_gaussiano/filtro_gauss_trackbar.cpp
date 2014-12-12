@@ -15,6 +15,7 @@ void filtragem(int, void *){
     m |= 1;
 
     GaussianBlur(img, filtro, Size(m, m), sigma);
+    // GaussianBlur(img, filtro, Size(m, m), -sigma);
 
     // Mat sub = img - filtro;
 

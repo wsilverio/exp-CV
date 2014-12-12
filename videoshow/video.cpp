@@ -22,7 +22,7 @@ int main(void){
         Mat atual;
         cap >> atual;
 
-        cvtColor(atual, atual, CV_BGR2GRAY);
+        cvtColor(atual, atual, COLOR_RGB2GRAY);
 
         Mat dif = atual - anterior;
         anterior = atual.clone();
@@ -30,7 +30,11 @@ int main(void){
         GaussianBlur(dif, dif, Size(7,7), 1.5, 1.5);
         Canny(dif, dif, 0, 30, 3);
         imshow("video", dif);
-        if(waitKey(30) >= 0) break;
+
+        // if(waitKey(30) >= 0) break;
+        char c = (char) cvWaitKey(30);
+        if (c == 's' || c == 'S') imwrite(to_string(rand()) + ".png", dif); // salva a imagem
+        else if(c == 27) break;
 
     }
 
