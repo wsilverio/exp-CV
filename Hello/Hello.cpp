@@ -1,6 +1,5 @@
 #include <opencv2/opencv.hpp>
 #include <opencv2/highgui/highgui_c.h>
-#include <iostream>
 
 using namespace cv;
 // using namespace std;
@@ -15,7 +14,7 @@ int main (void){
 
     Mat imgC, imgG;
     // carega a imagem em imgC (color)
-    imgC = imread("../images/Lenna.png");
+    imgC = imread("../../images/Lenna.png");
 
     // converte para a escala de cinza (gray)
     cvtColor(imgC, imgG, CV_RGB2GRAY);

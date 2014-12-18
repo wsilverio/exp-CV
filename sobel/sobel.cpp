@@ -41,8 +41,9 @@ int main(void){
         Mat x, y;
         Sobel(img, x, CV_16S, 1, 0, 3, 1, 0, BORDER_DEFAULT);
         Sobel(img, y, CV_16S, 0, 1, 3, 1, 0, BORDER_DEFAULT);
-        
+
         addWeighted(x, 0.5, y, 0.5, 0, result);
+        // add(x, y, result);
         convertScaleAbs(result, result);
         imshow("result abs", result);
 
@@ -51,7 +52,7 @@ int main(void){
 
         imshow("sobel x", x);
         imshow("sobel y", y);
-        
+
         // flip(img, img, 1);
 
         // imshow("Video", result);
@@ -66,11 +67,13 @@ int main(void){
 
     }
 
-    // Mat img = imread("../images/CH03/Fig0342(a)(contact_lens_original).tif");
+    // Mat img = imread("../images/desenho.jpg");
     // imshow("img", img);
     // imwrite("img.png", img);
-    // Mat result;
-    // Sobel(img, result, CV_16S, 1, 1, 3, 1, 0, BORDER_DEFAULT);
+    // Mat result, x, y;
+    // Sobel(img, x, CV_16S, 1, 0, 3, 1, 0, BORDER_DEFAULT);
+    // Sobel(img, y, CV_16S, 0, 1, 3, 1, 0, BORDER_DEFAULT);
+    // addWeighted(x, 0.5, y, 0.5, 0, result);
     // convertScaleAbs(result, result);
     // imshow("Sobel", result);
     // imwrite("Sobel.png", result);

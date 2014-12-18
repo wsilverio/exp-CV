@@ -1,0 +1,3 @@
+{
+	"shell_cmd": "gcc -ggdb -std=c99 `pkg-config --cflags opencv` -o ${file_base_name}.run ${file_name} `pkg-config --libs opencv` && ./${file_base_name}.run"
+}

@@ -7,7 +7,7 @@ using namespace std;
 
 
 int main(void){
-    
+
     // inicia um numero randomico com seed 1234
     RNG random(1234);
 
@@ -32,13 +32,14 @@ int main(void){
     mask = imread("../images/CH02/Fig0230(b)(dental_xray_mask).tif", 0);
     
     // converte a máscara PB em binário
-    mask /= 255; // 0-255 -> 0-1
+    // mask /= 255; // 0-255 -> 0-1
 
     // cout << mask;
 
-    multiply(img, mask, resul);
-    imshow("dente", img.mul(mask));
-    imwrite("dente.jpg", img.mul(mask));
+    multiply(img, mask, resul, 1./255);
+    imshow("dente", resul);
+    // imshow("dente", img.mul(mask));
+    // imwrite("dente.jpg", img.mul(mask));
 
     waitKey();
 
