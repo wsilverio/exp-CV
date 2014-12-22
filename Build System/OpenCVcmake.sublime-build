@@ -1,3 +1,3 @@
 {
-	"shell_cmd": "rm -rf build && mkdir build && cd build && cmake ../ && make && mv ${file_base_name} ../${file_base_name}.run && cd ../ && ./${file_base_name}.run"
+	"shell_cmd": "rm -rf build && mkdir build && cd build && cmake ../ && make && ln -s ${file_base_name} ../${file_base_name}.run && cd ../ && ./${file_base_name}.run"
 }

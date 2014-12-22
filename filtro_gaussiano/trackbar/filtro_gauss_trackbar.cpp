@@ -28,7 +28,7 @@ void filtragem(int, void *){
 int main(void){
 
     // img = imread("../images/Lenna.png");
-    img = imread("../images/CH03/Fig0340(a)(dipxe_text).tif");
+    img = imread("../../images/CH03/Fig0340(a)(dipxe_text).tif");
 
     namedWindow("filtro gaussiano", WINDOW_AUTOSIZE);
 

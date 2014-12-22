@@ -7,7 +7,7 @@ using namespace std;
 
 int main(void){
 
-    Mat img = imread("../images/CH03/Fig0340(a)(dipxe_text).tif");
+    Mat img = imread("../../images/CH03/Fig0340(a)(dipxe_text).tif");
     imshow("original", img);
 
     int m = 5;

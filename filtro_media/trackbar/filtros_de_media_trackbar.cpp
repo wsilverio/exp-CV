@@ -38,9 +38,9 @@ void filtragem(int, void *){
 
 int main(void){
 
-    // img = imread("../images/Lenna.png");
-    // img = imread("../images/CH03/Fig0333(a)(test_pattern_blurring_orig).tif");
-    img = imread("../images/CH03/Fig0334(a)(hubble-original).tif");
+    // img = imread("../../images/Lenna.png");
+    // img = imread("../../images/CH03/Fig0333(a)(test_pattern_blurring_orig).tif");
+    img = imread("../../images/CH03/Fig0334(a)(hubble-original).tif");
 
     namedWindow("img - filtro", WINDOW_AUTOSIZE);
     namedWindow("filtro de media", WINDOW_AUTOSIZE);

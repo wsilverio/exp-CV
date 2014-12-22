@@ -6,7 +6,7 @@ using namespace cv;
 using namespace std;
 
 int main(void){
-    Mat img = imread("../images/Lenna.png");
+    Mat img = imread("../../images/Lenna.png");
 
     imshow("original", img);
     imwrite("original.png", img);
@@ -52,7 +52,7 @@ int main(void){
         imwrite("img_-_blur" + to_string(m[i]) + "x" + to_string(m[i]) + ".png", img - result);
     }
 
-    // img = imread("../images/CH03/Fig0333(a)(test_pattern_blurring_orig).tif");
+    // img = imread("../../images/CH03/Fig0333(a)(test_pattern_blurring_orig).tif");
     // imshow("placa_original", img);
     // imwrite("placa_original.png", img);
 

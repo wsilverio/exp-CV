@@ -14,14 +14,14 @@ int main(void){
 	namedWindow("img", WINDOW_AUTOSIZE);
 
 	int y = 0;
-	putText(img, texto, Point (50, y+=50), FONT_HERSHEY_SIMPLEX, 1, Scalar(0), 1, LINE_8);
-	putText(img, texto, Point (50, y+=50), FONT_HERSHEY_PLAIN, 1, Scalar(0), 1, LINE_8);
-	putText(img, texto, Point (50, y+=50), FONT_HERSHEY_DUPLEX, 1, Scalar(0), 1, LINE_8);
-	putText(img, texto, Point (50, y+=50), FONT_HERSHEY_COMPLEX, 1, Scalar(0), 1, LINE_8);
-	putText(img, texto, Point (50, y+=50), FONT_HERSHEY_TRIPLEX, 1, Scalar(0), 1, LINE_8);
-	putText(img, texto, Point (50, y+=50), FONT_HERSHEY_COMPLEX_SMALL, 1, Scalar(0), 1, LINE_8);
-	putText(img, texto, Point (50, y+=50), FONT_HERSHEY_SCRIPT_SIMPLEX, 1, Scalar(0), 1, LINE_8);
-	putText(img, texto, Point (50, y+=50), FONT_HERSHEY_SCRIPT_COMPLEX, 1, Scalar(0), 1, LINE_8);
+	putText(img, texto, Point (50, y+=50), FONT_HERSHEY_SIMPLEX, 1, Scalar(0), 1, 8);
+	putText(img, texto, Point (50, y+=50), FONT_HERSHEY_PLAIN, 1, Scalar(0), 1, 8);
+	putText(img, texto, Point (50, y+=50), FONT_HERSHEY_DUPLEX, 1, Scalar(0), 1, 8);
+	putText(img, texto, Point (50, y+=50), FONT_HERSHEY_COMPLEX, 1, Scalar(0), 1, 8);
+	putText(img, texto, Point (50, y+=50), FONT_HERSHEY_TRIPLEX, 1, Scalar(0), 1, 8);
+	putText(img, texto, Point (50, y+=50), FONT_HERSHEY_COMPLEX_SMALL, 1, Scalar(0), 1, 8);
+	putText(img, texto, Point (50, y+=50), FONT_HERSHEY_SCRIPT_SIMPLEX, 1, Scalar(0), 1, 8);
+	putText(img, texto, Point (50, y+=50), FONT_HERSHEY_SCRIPT_COMPLEX, 1, Scalar(0), 1, 8);
 
 	// putText(img, texto, Point (50, 50), FONT_HERSHEY_SIMPLEX, double fontScale, Scalar color, int thickness=1, int lineType=LINE_8, bool bottomLeftOrigin=false );
 
